@@ -41,7 +41,7 @@ Ensure you have the following installed on your system:
 1. **Clone the Repository**:
    ```bash
    git clone git@github.com:juanito-lansangan/dockerize-laravel-inertia-vue-starterkit.git
-   cd dockerize-laravel-inertia-vue
+   cd dockerize-laravel-inertia-vue-starterkit
    ```
 2. **Create env file**
     create .env and copy the content of .env.example
