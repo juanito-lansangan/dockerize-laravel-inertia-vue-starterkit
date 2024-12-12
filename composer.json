@@ -83,7 +83,8 @@
         "app:install": [
             "@app:build",
             "@app:start",
-            "composer install"
+            "composer install",
+            "npm install"
         ]
     },
     "extra": {
