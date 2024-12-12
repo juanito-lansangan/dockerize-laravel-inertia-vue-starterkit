@@ -12,7 +12,7 @@ This repository provides a pre-configured starter kit for building Laravel appli
 ## Features
 
 1. **Dockerized Environment**:
-   - Containers for Laravel, MySQL, Nginx, and Horizon
+   - Containers for Laravel, MySQL, Nginx, Cron, and Horizon
    - Easy setup using `docker-compose`
 
 2. **Pre-installed Tools**:
@@ -40,7 +40,7 @@ Ensure you have the following installed on your system:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-repo/dockerize-laravel-inertia-vue.git
+   git clone git@github.com:juanito-lansangan/dockerize-laravel-inertia-vue-starterkit.git
    cd dockerize-laravel-inertia-vue
    ```
 2. **Create env file**
