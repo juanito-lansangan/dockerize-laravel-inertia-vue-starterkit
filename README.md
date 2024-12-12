@@ -43,7 +43,7 @@ Ensure you have the following installed on your system:
    git clone git@github.com:juanito-lansangan/dockerize-laravel-inertia-vue-starterkit.git
    cd dockerize-laravel-inertia-vue-starterkit
    ```
-2. **Create env file**
+2. **Create env file**:
     create .env and copy the content of .env.example
 3. **One command to build and Install Dependencies and Set Up the Application**
     ```bash
@@ -53,7 +53,7 @@ Ensure you have the following installed on your system:
     ```bash
     npm run dev
     ```
-5. **Access the application**
+5. **Access the application**:
     http://localhost:8006
 
 ## Included Services
