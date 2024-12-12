@@ -80,9 +80,7 @@
         "app:install": [
             "@app:build",
             "@app:start",
-            "composer install",
-            "@app:db-migrate",
-            "@app:db-seed"
+            "composer install"
         ]
     },
     "extra": {
