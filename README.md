@@ -46,6 +46,9 @@ Ensure you have the following installed on your system:
 2. **Create env file**:
 
     create .env and copy the content of .env.example
+    ```bash
+    cp .env.example .env
+    ```
 3. **One command to build and Install Dependencies and Set Up the Application**
     ```bash
     composer app:install
