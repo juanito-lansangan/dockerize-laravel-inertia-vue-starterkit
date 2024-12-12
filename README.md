@@ -65,7 +65,7 @@ Ensure you have the following installed on your system:
 
 1. **Laravel Scheduler**:
 
-   The Laravel Scheduler is pre-configured to run in the scheduler service. Jobs defined in the app/Console/Kernel.php will execute automatically.
+   The Laravel Scheduler is pre-configured to run in the scheduler service. Jobs defined in the `routes/console.php` will execute automatically.
 2. **Laravel Horizon**
 
     The Horizon dashboard is available at http://localhost:8006/horizon. Use it to monitor your queues and manage workers.
