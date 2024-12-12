@@ -77,6 +77,9 @@
         "app:db-seed": [
             "docker-compose exec app php artisan db:seed"
         ],
+        "app:db-migrate-freshseed": [
+            "docker-compose exec app php artisan migrate:fresh --seed"
+        ],
         "app:install": [
             "@app:build",
             "@app:start",
