@@ -44,6 +44,7 @@ Ensure you have the following installed on your system:
    cd dockerize-laravel-inertia-vue-starterkit
    ```
 2. **Create env file**:
+
     create .env and copy the content of .env.example
 3. **One command to build and Install Dependencies and Set Up the Application**
     ```bash
