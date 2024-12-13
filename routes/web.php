@@ -8,7 +8,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return inertia('Dashboard/Index');
+    return inertia('Dashboard/SimpleLayout');
 });
 
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
