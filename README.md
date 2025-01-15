@@ -50,11 +50,19 @@ Ensure you have the following installed on your system:
     ```bash
     composer app:install
     ```
-3. **Start the app**:
+3. **Run migration and seeders**:
+
+    You might wait for a few seconds to run this command to avoid connection error, because the db container might not yet finish booting up. If you encounter the connection error, just run this command again after a 10-15 seconds
+
+    ```bash
+    composer app:db-migrate-seed
+    ```
+
+4. **Start the app**:
     ```bash
     composer app:start
     ```
-4. **Access the application**
+5. **Access the application**
    http://localhost:8008
 
 ## Included Services

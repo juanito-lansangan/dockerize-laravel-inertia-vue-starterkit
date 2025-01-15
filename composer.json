@@ -80,7 +80,7 @@
         "app:db-seed": [
             "docker-compose exec app php artisan db:seed"
         ],
-        "app:db-migrate-freshseed": [
+        "app:db-migrate-seed": [
             "docker-compose exec app php artisan migrate:fresh --seed"
         ],
         "app:start": [
@@ -94,9 +94,7 @@
             "npm install",
             "cp .env.example .env",
             "docker-compose exec app php artisan storage:unlink",
-            "docker-compose exec app php artisan storage:link",
-            "@app:db-migrate",
-            "@app:db-seed"
+            "docker-compose exec app php artisan storage:link"
         ]
     },
     "extra": {
