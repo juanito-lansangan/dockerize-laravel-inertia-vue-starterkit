@@ -1,23 +1,24 @@
-FROM php:8.3-fpm-alpine
+FROM php:8.3-fpm
 
-# Update app
-RUN apk update && apk add --no-cache tzdata
-# Set timezone
-# ENV TZ="Asia/Manila"
+# Arguments defined in docker-compose.yml
+ARG uid=1000
+ARG user=laravel
 
-RUN apk add --update --no-cache autoconf g++ make openssl-dev
-RUN apk add libpng-dev
-RUN apk add libzip-dev
-RUN apk add --update linux-headers
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    zip \
+    unzip
 
-RUN docker-php-ext-install gd
-RUN docker-php-ext-install zip
-RUN docker-php-ext-install bcmath
-RUN docker-php-ext-install sockets
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-### End Init install
+# Clear cache
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN docker-php-ext-install pdo pdo_mysql
+# Install PHP extensions
+RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 
 # Install xdebug
 RUN pecl install xdebug
@@ -25,3 +26,16 @@ RUN pecl install xdebug
 # Copy config files
 COPY ./docker/php/90-xdebug.ini "${PHP_INI_DIR}"/conf.d
 COPY ./docker/php/custom.ini "${PHP_INI_DIR}"/conf.d
+
+# Get latest Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Create system user to run Composer and Artisan Commands
+RUN useradd -G www-data,root -u $uid -d /home/$user $user
+RUN mkdir -p /home/$user/.composer && \
+    chown -R $user:$user /home/$user
+
+# Set working directory
+WORKDIR /var/www/html
+
+USER $user

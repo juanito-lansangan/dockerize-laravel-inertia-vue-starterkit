@@ -3,7 +3,10 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "keywords": [
+        "laravel",
+        "framework"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.2",
@@ -55,20 +58,20 @@
             "Composer\\Config::disableProcessTimeout",
             "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite"
         ],
-        "app:start": [
+        "docker:start": [
             "docker-compose up -d",
             "docker ps"
         ],
-        "app:stop": [
+        "docker:stop": [
             "docker-compose stop"
         ],
-        "app:down": [
+        "docker:down": [
             "docker-compose down"
         ],
-        "app:build": [
+        "docker:build": [
             "docker-compose build"
         ],
-        "app:restart": [
+        "docker:restart": [
             "docker-compose restart"
         ],
         "app:db-migrate": [
@@ -80,11 +83,19 @@
         "app:db-migrate-freshseed": [
             "docker-compose exec app php artisan migrate:fresh --seed"
         ],
+        "app:start": [
+            "npm run dev"
+        ],
         "app:install": [
-            "@app:build",
-            "@app:start",
+            "@docker:build",
+            "@docker:start",
             "composer install",
-            "npm install"
+            "npm install",
+            "cp .env.example .env",
+            "docker-compose exec app php artisan storage:unlink",
+            "docker-compose exec app php artisan storage:link",
+            "@app:db-migrate",
+            "@app:db-seed"
         ]
     },
     "extra": {
