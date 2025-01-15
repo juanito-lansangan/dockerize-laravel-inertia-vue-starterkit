@@ -84,6 +84,7 @@
             "docker-compose exec app php artisan migrate:fresh --seed"
         ],
         "app:start": [
+            "@docker:start",
             "npm run dev"
         ],
         "app:install": [

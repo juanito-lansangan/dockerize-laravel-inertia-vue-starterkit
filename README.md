@@ -52,7 +52,7 @@ Ensure you have the following installed on your system:
     ```
 3. **Start the app**:
     ```bash
-    npm run dev
+    composer app:start
     ```
 4. **Access the application**
    http://localhost:8008
